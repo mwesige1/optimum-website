@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Not Found | Optimum Innovation Lab Ltd</title>
+  <meta name="robots" content="noindex, nofollow"/>
+
+  <!-- ── FONTS & ICONS ── -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <!-- ── FAVICON ── -->
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <link rel="apple-touch-icon" href="images/favicon.png"/>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #020c1b;
+      --dark: #0a1628;
+      --card: #0d1f3c;
+      --blue: #0a84ff;
+      --cyan: #00d4ff;
+      --light: #ccd6f6;
+      --muted: #8892b0;
+      --white: #e6f1ff;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--light);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+    /* ── GRID BACKGROUND ── */
+    .grid-bg {
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 55px 55px;
+      pointer-events: none;
+    }
+
+    /* ── GLOW ORBS ── */
+    .orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(80px); pointer-events: none; z-index: 0;
+    }
+    .orb-1 {
+      width: 400px; height: 400px;
+      background: rgba(0,132,255,0.08);
+      top: -100px; left: -100px;
+    }
+    .orb-2 {
+      width: 300px; height: 300px;
+      background: rgba(0,212,255,0.06);
+      bottom: -80px; right: -80px;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: relative; z-index: 10;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 24px 6%;
+      border-bottom: 1px solid rgba(0,212,255,0.08);
+    }
+    .logo {
+      display: flex; align-items: center;
+      gap: 12px; text-decoration: none;
+    }
+    .logo-img {
+      height: 70px; width: 70px;
+      object-fit: contain; border-radius: 50%;
+      background: #3d5263; padding: 4px;
+    }
+    .logo-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      display: none; align-items: center; justify-content: center;
+      font-size: 20px; color: #fff; font-weight: 900;
+      font-family: 'Orbitron', sans-serif;
+      box-shadow: 0 0 20px rgba(0,212,255,0.3);
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-name { font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 700; color: var(--cyan); letter-spacing: 1px; }
+    .logo-sub { font-size: 9px; color: var(--muted); letter-spacing: 2px; }
+
+    .nav-home {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 24px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #fff; font-weight: 600; font-size: 13px;
+      text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0,132,255,0.35);
+    }
+    .nav-home:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,0.45); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      flex: 1; display: flex; align-items: center;
+      justify-content: center; padding: 60px 6%;
+      position: relative; z-index: 1;
+    }
+
+    .error-wrap { text-align: center; max-width: 640px; }
+
+    /* ── 404 NUMBER ── */
+    .error-code {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 40px rgba(0,212,255,0.3));
+    }
+
+    .error-icon {
+      font-size: 48px; color: var(--cyan);
+      margin-bottom: 24px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .error-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700; color: var(--white);
+      margin-bottom: 16px;
+    }
+    .error-title span { color: var(--cyan); }
+
+    .error-desc {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.8; margin-bottom: 40px;
+    }
+
+    /* ── BUTTONS ── */
+    .error-btns {
+      display: flex; gap: 16px;
+      justify-content: center; flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .btn-primary {
+      padding: 13px 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #fff; font-weight: 600; font-size: 14px;
+      text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0,132,255,0.35);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(0,212,255,0.45); }
+
+    .btn-outline {
+      padding: 13px 32px; border-radius: 8px;
+      background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,212,255,0.4);
+      color: var(--cyan); font-weight: 600; font-size: 14px;
+      text-decoration: none; transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline:hover { background: rgba(0,212,255,0.1); transform: translateY(-3px); }
+
+    /* ── QUICK LINKS ── */
+    .quick-links-label {
+      font-size: 11px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--cyan);
+      margin-bottom: 20px;
+    }
+
+    .quick-links {
+      display: flex; gap: 12px;
+      justify-content: center; flex-wrap: wrap;
+    }
+
+    .quick-link {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 8px;
+      background: var(--card);
+      border: 1px solid rgba(0,212,255,0.08);
+      color: var(--light); font-size: 13px;
+      text-decoration: none; transition: all 0.3s;
+    }
+    .quick-link i { color: var(--cyan); font-size: 13px; }
+    .quick-link:hover {
+      border-color: rgba(0,212,255,0.3);
+      background: rgba(0,212,255,0.06);
+      transform: translateY(-2px);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 24px 6%;
+      border-top: 1px solid rgba(0,212,255,0.06);
+      font-size: 12px; color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .error-btns { flex-direction: column; align-items: center; }
+      .quick-links { flex-direction: column; align-items: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="grid-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">
+      <img
+        class="logo-img"
+        src="images/web logo-01.jpg.jpeg"
+        alt="Optimum Innovation Lab Ltd"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="logo-icon">O</div>
+      <div class="logo-text">
+        <span class="logo-name">Optimum</span>
+        <span class="logo-sub">Innovation Lab Ltd</span>
+      </div>
+    </a>
+    <a href="index.html" class="nav-home">
+      <i class="fas fa-home"></i> Back to Home
+    </a>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="error-wrap">
+
+      <div class="error-code">404</div>
+      <div class="error-icon"><i class="fas fa-satellite-dish"></i></div>
+
+      <h1 class="error-title">Page <span>Not Found</span></h1>
+      <p class="error-desc">
+        Oops! The page you're looking for doesn't exist or has been moved.
+        It might be a broken link or a page that no longer exists.
+        Let's get you back on track.
+      </p>
+
+      <div class="error-btns">
+        <a href="index.html" class="btn-primary">
+          <i class="fas fa-home"></i> Back to Homepage
+        </a>
+        <a href="index.html#contact" class="btn-outline">
+          <i class="fas fa-envelope"></i> Contact Us
+        </a>
+      </div>
+
+      <p class="quick-links-label">Or explore our services</p>
+      <div class="quick-links">
+        <a href="gps-tracking.html" class="quick-link"><i class="fas fa-satellite-dish"></i> GPS Tracking</a>
+        <a href="web-hosting.html" class="quick-link"><i class="fas fa-globe"></i> Web Hosting</a>
+        <a href="fleet-management.html" class="quick-link"><i class="fas fa-truck"></i> Fleet Management</a>
+        <a href="computer-repairs.html" class="quick-link"><i class="fas fa-tools"></i> Computer Repairs</a>
+        <a href="digital-marketing.html" class="quick-link"><i class="fas fa-bullhorn"></i> Digital Marketing</a>
+        <a href="database-management.html" class="quick-link"><i class="fas fa-database"></i> Database Management</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Optimum Innovation Lab Ltd. All rights reserved. 🇺🇬</p>
+  </footer>
+
+</body>
+</html>

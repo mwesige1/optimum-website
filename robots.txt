@@ -1,0 +1,15 @@
+# ── ROBOTS.TXT ──
+# Optimum Innovation Lab Ltd
+# https://www.optimuminnovationlabitd.com
+
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Block access to any sensitive folders (add more as needed)
+Disallow: /images/
+Disallow: /admin/
+Disallow: /private/
+
+# Point to the sitemap
+Sitemap: https://www.optimuminnovationlabitd.com/sitemap.xml
