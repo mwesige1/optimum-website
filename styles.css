@@ -152,7 +152,7 @@ section { padding: 100px 6%; }
 
 /* ── QUICK ACCESS PANEL ── */
 .quick-access {
-  position: absolute; right: 20px; top: 120px; z-index: 2;
+  position: fixed; right: 20px; top: 120px; z-index: 2;
   width: 400px; padding: 36px 32px 32px;
   background: linear-gradient(160deg, rgba(10,25,50,0.92) 0%, rgba(2,12,27,0.96) 100%);
   backdrop-filter: blur(28px); border-radius: 28px;
