@@ -3,13 +3,13 @@ const navbarHTML = `
   <a href="index.html" class="logo">
     <img
       class="logo-img"
-      src="images/web logo-01.jpg.jpeg"
+      src="images/mine.png"
       alt="Optimum Innovation Lab Ltd"
       onerror="this.style.display='none'; document.querySelector('.logo-icon').style.display='flex';"
     />
     <div class="logo-icon">O</div>
     <div class="logo-text">
-      <span class="logo-name">Optimum</span>
+      <span class="logo-name">ptimum</span>
       <span class="logo-sub">Innovation Lab Ltd</span>
     </div>
   </a>
@@ -49,15 +49,16 @@ const navbarCSS = `
   }
   nav.scrolled { padding: 12px 6%; }
 
-  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo { display: flex; align-items: center; gap: 0px; text-decoration: none; }
 
-  .logo-img {
-    height: 70px; width: 70px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: #3d5263;
-    padding: 4px;
-  }
+ .logo-img {
+  height: 65px;
+  width: 65px;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
+  padding:0px;
+}
   .logo-icon {
     width: 44px; height: 44px; border-radius: 12px;
     background: linear-gradient(135deg, #00d4ff, #0a84ff);
@@ -67,7 +68,7 @@ const navbarCSS = `
     box-shadow: 0 0 20px rgba(0,212,255,0.35);
   }
   .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
-  .logo-name { font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 700; color: #00d4ff; letter-spacing: 1px; }
+  .logo-name { font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 700; color: #00d4ff; letter-spacing: 1px; }
   .logo-sub { font-size: 9px; color: #8892b0; letter-spacing: 2px; }
 
   .nav-links { display: flex; gap: 36px; list-style: none; }
