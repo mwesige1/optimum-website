@@ -1,6 +1,6 @@
 # ── ROBOTS.TXT ──
 # Optimum Innovation Lab Ltd
-# https://www.optimuminnovationlabitd.com
+# https://www.optimuminnovationlabltd.com
 
 # Allow all search engines to crawl everything
 User-agent: *
@@ -12,4 +12,4 @@ Disallow: /admin/
 Disallow: /private/
 
 # Point to the sitemap
-Sitemap: https://www.optimuminnovationlabitd.com/sitemap.xml
+Sitemap: https://www.optimuminnovationlabltd.com/sitemap.xml
